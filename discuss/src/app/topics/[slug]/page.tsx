@@ -16,7 +16,7 @@ export default function TopicShowPage({ params }: TopicShowPageProps) {
       </div>
 
       <div>
-        <PostCreateForm  slug={slug}/>
+        <PostCreateForm slug={slug} />
       </div>
     </div>
   );
