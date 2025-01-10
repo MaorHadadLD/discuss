@@ -22,6 +22,7 @@ interface CreatePostFormState {
 }
 
 export async function createPost(
+    slug: string,
     formState: CreatePostFormState,
     formData: FormData
 ): Promise<CreatePostFormState> {
@@ -43,6 +44,18 @@ export async function createPost(
                 _form: ['You must be logged in to create a post']
             }
         }
+    }
+
+    const topic = await db.topic.findFirst({
+        where: { slug }
+    })
+
+    if (!topic) {
+        return {
+            errors: {
+                _form: ['Cannot find the topic']
+            },
+        };
     }
 
     return {
