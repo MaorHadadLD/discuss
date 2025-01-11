@@ -8,6 +8,8 @@ import {
 } from '@nextui-org/react';
 import HeaderAuth from '@/components/header-auth';
 import SearcInput from '@/components/search-input';
+
+
 export default  function Header() {
   
   return (
