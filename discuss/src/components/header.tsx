@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Suspense } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -18,7 +19,9 @@ export default  function Header() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
+          <Suspense>
           <SearcInput />
+          </Suspense>
         </NavbarItem>
       </NavbarContent>
 

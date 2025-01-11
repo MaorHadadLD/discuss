@@ -2,15 +2,14 @@ import PostCreateForm from '@/components/posts/post-create-form';
 import PostList from '@/components/posts/post-list';
 import { fetchPostsByTopicSlug } from '@/db/queries/post';
 
-
 interface TopicShowPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function TopicShowPage({ params }: TopicShowPageProps) {
-  const { slug } = params;
+export default async function TopicShowPage({ params }: TopicShowPageProps) {
+  const { slug } = await params;
 
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
