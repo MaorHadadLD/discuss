@@ -6,26 +6,20 @@ interface CommentListProps {
 }
 
 // TODO: Get a list of comments from somewhere
-export default async function CommentList({postId}: CommentListProps) {
+export default async function CommentList({ postId }: CommentListProps) {
   const comments = await fetchCommentsByPostId(postId);
-  
-  const topLevelComments = comments.filter(
-    (comment) => comment.parentId === null
-  );
-  const renderedComments = topLevelComments.map((comment) => {
-    return (
-      <CommentShow
-        key={comment.id}
-        commentId={comment.id}
-        postId={postId}
-      />
-    );
-  });
 
+  if (comments.length === 0) {
+    return <p className="text-gray-500">No comments yet. Be the first to comment!</p>;
+  }
+
+  const topLevelComments = comments.filter((comment) => comment.parentId === null);
   return (
-    <div className="space-y-3">
-      <h1 className="text-lg font-bold">All {comments.length} comments</h1>
-      {renderedComments}
+    <div className="space-y-4">
+      <h1 className="text-lg font-bold">All {comments.length} Comments</h1>
+      {topLevelComments.map((comment) => (
+        <CommentShow key={comment.id} commentId={comment.id} postId={postId} />
+      ))}
     </div>
   );
 }

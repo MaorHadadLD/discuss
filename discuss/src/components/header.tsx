@@ -10,23 +10,21 @@ import HeaderAuth from '@/components/header-auth';
 import SearcInput from '@/components/search-input';
 
 
-export default  function Header() {
-  
+export default function Header() {
   return (
-    <Navbar className="shadow mb-6">
+    <Navbar className="shadow mb-6 bg-white">
       <NavbarBrand>
-        <Link href="/" className="font-bold">
+        <Link href="/" className="text-2xl font-bold text-blue-600">
           Discuss
         </Link>
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
           <Suspense>
-          <SearcInput />
+            <SearcInput />
           </Suspense>
         </NavbarItem>
       </NavbarContent>
-
       <NavbarContent justify="end">
         <HeaderAuth />
       </NavbarContent>

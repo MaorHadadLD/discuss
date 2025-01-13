@@ -26,16 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="constainer mx-auto px-4 max-w-6xl">
-        <Providers>
-          <Header />
-          {children}
-        </Providers>
+      <body className="bg-gray-100 text-gray-800 antialiased">
+        <div className="container mx-auto px-4 max-w-6xl bg-white shadow-lg rounded-lg p-6">
+          <Providers>
+            <Header />
+            {children}
+          </Providers>
         </div>
       </body>
     </html>
   );
 }
+
